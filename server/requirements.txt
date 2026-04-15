@@ -7,4 +7,3 @@ python-multipart
 certifi
 numpy
 scikit-learn
-pickle5
