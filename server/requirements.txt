@@ -1,5 +1,10 @@
-fastapi==0.115.0
-uvicorn==0.30.0
+fastapi
+uvicorn
+pymongo
+bcrypt
+pyjwt
+python-multipart
+certifi
 numpy
 scikit-learn
-pydantic
+pickle5
