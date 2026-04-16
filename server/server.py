@@ -38,7 +38,14 @@ JWT_EXPIRY_HOURS = 72
 # Connect to MongoDB
 try:
     import certifi
-    client = MongoClient(MONGO_URI, serverSelectionTimeoutMS=5000, tls=True, tlsCAFile=certifi.where())
+    client = MongoClient(
+    MONGO_URI,
+    serverSelectionTimeoutMS=10000,
+    tls=True,
+    tlsCAFile=certifi.where(),
+    tlsAllowInvalidCertificates=False,
+    retryWrites=True,
+)
     client.admin.command("ping")
     db = client["moodspace"]
     users_col = db["users"]
