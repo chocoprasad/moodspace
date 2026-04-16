@@ -5,6 +5,7 @@ Run: pip install fastapi uvicorn pymongo bcrypt pyjwt python-multipart
 """
 from fastapi import FastAPI, HTTPException, Depends, Header
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import RedirectResponse
 from pydantic import BaseModel, EmailStr
 from typing import Optional
 from datetime import datetime, timedelta, timezone
