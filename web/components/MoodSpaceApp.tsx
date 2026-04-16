@@ -932,7 +932,7 @@ function SpotifyOverlay({ mood, visible, onClose }: { mood: string; visible: boo
           <div className="flex items-center gap-2 px-3 py-2 border-b border-white/[0.03]">
             <span className="text-sm">{meta.emoji}</span>
             <span className="text-[10px] text-white/30">Playing for <span className="font-semibold" style={{ color: meta.color }}>{mood}</span> mood</span>
-            <button onClick={searchMoodTracks} className="ml-auto text-[9px] text-white/20 hover:text-white/40 cursor-pointer">Refresh</button>
+            <button onClick={() => searchMoodTracks()} className="ml-auto text-[9px] text-white/20 hover:text-white/40 cursor-pointer">Refresh</button>
           </div>
 
           {/* Now playing bar */}
