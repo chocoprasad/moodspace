@@ -688,8 +688,9 @@ if __name__ == "__main__":
 
 @app.get("/spotify/callback")
 def spotify_callback(code: str = ""):
-    # Redirect to frontend with the code
-    return RedirectResponse(url=f"http://localhost:3000?spotify_code={code}")
+    import os
+    frontend_url = os.environ.get("FRONTEND_URL", "http://localhost:3000")
+    return RedirectResponse(url=f"{frontend_url}?spotify_code={code}")
 
 
 if __name__ == "__main__":

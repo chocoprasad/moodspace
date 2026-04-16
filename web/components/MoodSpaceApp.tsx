@@ -14,13 +14,17 @@ import {
 /* ══════════════════════════════════════════════════════
    API CONFIG
    ══════════════════════════════════════════════════════ */
-const API_URL = "http://localhost:8000";
+const API_URL = process.env.NODE_ENV === "production" 
+  ? "https://moodspace-api.onrender.com"
+  : "http://localhost:8000";
 
 /* ══════════════════════════════════════════════════════
    SPOTIFY CONFIG — fill in your credentials
    ══════════════════════════════════════════════════════ */
 const SPOTIFY_CLIENT_ID = "c9f01c55ea814376b599edf076ffb29e"; // Your Spotify Client ID
-const SPOTIFY_REDIRECT_URI = "http://127.0.0.1:8000/spotify/callback";
+const SPOTIFY_REDIRECT_URI = process.env.NODE_ENV === "production"
+  ? "https://moodspace-api.onrender.com/spotify/callback"
+  : "http://127.0.0.1:8000/spotify/callback";
 const SPOTIFY_SCOPES = [
   "streaming",
   "user-read-playback-state",
