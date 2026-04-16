@@ -687,9 +687,11 @@ if __name__ == "__main__":
     from fastapi.responses import RedirectResponse
 
 @app.get("/spotify/callback")
-def spotify_callback(code: str = ""):
+def spotify_callback(code: str = "", error: str = ""):
     import os
     frontend_url = os.environ.get("FRONTEND_URL", "http://localhost:3000")
+    if error:
+        return RedirectResponse(url=f"{frontend_url}?spotify_error={error}")
     return RedirectResponse(url=f"{frontend_url}?spotify_code={code}")
 
 
